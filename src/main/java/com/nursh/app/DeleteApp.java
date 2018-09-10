@@ -23,6 +23,8 @@ public class DeleteApp {
             session.beginTransaction();
             Instructor instructor = session.get(Instructor.class, id);
             if (instructor != null) {
+
+                // Cascades delete with Instructor detail
                 session.delete(instructor);
             }
             session.getTransaction().commit();
