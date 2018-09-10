@@ -1,7 +1,6 @@
-package com.onetoone.app;
+package OneToOne.hibernate.bi;
 
-import com.onetoone.entity.Instructor;
-import com.onetoone.entity.InstructorDetail;
+
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -21,12 +20,16 @@ public class DeleteApp {
 
             int id = 1;
             session.beginTransaction();
-            Instructor instructor = session.get(Instructor.class, id);
-            if (instructor != null) {
+            InstructorDetail detail = session.get(InstructorDetail.class, id);
+            if (detail != null) {
 
                 // Cascades delete with Instructor detail
-                session.delete(instructor);
+                session.delete(detail);
             }
+
+            // To Remove Instructor Detail without removing instructor
+            // Remove Cascade.all in java code
+            // set Instructor of detail to null before removing it else it raises error
             session.getTransaction().commit();
         } finally {
             factory.close();

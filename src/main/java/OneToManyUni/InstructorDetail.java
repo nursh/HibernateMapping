@@ -1,4 +1,4 @@
-package com.onetoone.entity;
+package OneToManyUni;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
@@ -21,6 +21,10 @@ public class InstructorDetail {
 
     @Column(name = "hobby")
     private String hobby;
+
+    // Bi directional mapping, allowing to fetch, mappedBy because it does not contain foreign key
+    @OneToOne(mappedBy = "instructorDetail", cascade = CascadeType.ALL)
+    private Instructor instructor;
 
     public InstructorDetail(String youtubeChannel, String hobby) {
         this.youtubeChannel = youtubeChannel;

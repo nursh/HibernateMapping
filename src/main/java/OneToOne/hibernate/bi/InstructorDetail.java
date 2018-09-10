@@ -1,4 +1,4 @@
-package com.hibernate.bi;
+package OneToOne.hibernate.bi;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;

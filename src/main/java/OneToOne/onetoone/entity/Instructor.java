@@ -1,4 +1,4 @@
-package com.hibernate.bi;
+package OneToOne.onetoone.entity;
 
 import lombok.Data;
 

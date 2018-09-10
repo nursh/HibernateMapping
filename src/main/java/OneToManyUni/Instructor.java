@@ -1,8 +1,10 @@
-package com.onetoone.entity;
+package OneToManyUni;
 
 import lombok.Data;
 
 import javax.persistence.*;
+import java.util.ArrayList;
+import java.util.List;
 
 @Data
 @Table(name = "instructor")
@@ -27,6 +29,15 @@ public class Instructor {
     @JoinColumn(name = "instructor_detail_id")
     private InstructorDetail instructorDetail;
 
+    @OneToMany(fetch = FetchType.LAZY,
+            mappedBy = "instructor", cascade = {
+            CascadeType.DETACH,
+            CascadeType.MERGE,
+            CascadeType.PERSIST,
+            CascadeType.REFRESH
+    })
+    private List<Course> courses;
+
     public Instructor() {
 
     }
@@ -35,5 +46,15 @@ public class Instructor {
         this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
+    }
+
+    public void addCourse(Course course) {
+
+        if (courses == null) {
+            courses = new ArrayList<Course>();
+        }
+
+        courses.add(course);
+        course.setInstructor(this);
     }
 }

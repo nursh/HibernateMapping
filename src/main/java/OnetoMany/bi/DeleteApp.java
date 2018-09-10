@@ -1,4 +1,4 @@
-package com.hibernate.bi;
+package OnetoMany.bi;
 
 
 import org.hibernate.Session;

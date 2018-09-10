@@ -1,16 +1,18 @@
-package com.hibernate.bi;
+package OneToManyUni;
 
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class App {
+public class CreateCourseandReviewDemo {
 
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml")
                 .addAnnotatedClass(Instructor.class)
                 .addAnnotatedClass(InstructorDetail.class)
+                .addAnnotatedClass(Course.class)
+                .addAnnotatedClass(Review.class)
                 .buildSessionFactory();
 
         Session session = factory.getCurrentSession();
@@ -18,11 +20,12 @@ public class App {
         try {
             session.beginTransaction();
 
-            int id = 2;
-            InstructorDetail detail = session.get(InstructorDetail.class, id);
-            System.out.println("Details: " + detail);
-            System.out.println("Instructor: " + detail.getInstructor());
+            Course war = new Course("War strategy and weapon handling");
+            war.addReview(new Review("What a manly course, Loved it"));
+            war.addReview(new Review("What is your Occupation!!"));
+            war.addReview(new Review("Men and their macho stereotypes"));
 
+            session.save(war);
 
             session.getTransaction().commit();
         } catch( Exception e) {

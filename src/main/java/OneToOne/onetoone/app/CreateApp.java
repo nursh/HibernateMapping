@@ -1,7 +1,7 @@
-package com.onetoone.app;
+package OneToOne.onetoone.app;
 
-import com.onetoone.entity.Instructor;
-import com.onetoone.entity.InstructorDetail;
+import OneToOne.onetoone.entity.InstructorDetail;
+import OneToOne.onetoone.entity.Instructor;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
