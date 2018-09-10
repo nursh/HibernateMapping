@@ -1,7 +1,7 @@
-package com.nursh.app;
+package com.onetoone.app;
 
-import com.nursh.entity.Instructor;
-import com.nursh.entity.InstructorDetail;
+import com.onetoone.entity.Instructor;
+import com.onetoone.entity.InstructorDetail;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -20,7 +20,7 @@ public class CreateApp {
         try {
 
 //            InstructorDetail details =
-//                    new InstructorDetail("nursh.youtube.com", "Reading books");
+//                    new InstructorDetail("onetoone.youtube.com", "Reading books");
 //            Instructor instructor =
 //                    new Instructor("Nur", "Sheikh", "nur@gmail.com");
 //            instructor.setInstructorDetail(details);

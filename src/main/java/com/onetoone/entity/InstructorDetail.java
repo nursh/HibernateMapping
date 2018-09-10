@@ -1,4 +1,4 @@
-package com.nursh.entity;
+package com.onetoone.entity;
 
 import lombok.Data;
 import lombok.NoArgsConstructor;
