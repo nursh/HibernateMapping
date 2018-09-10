@@ -19,18 +19,19 @@ public class CreateApp {
 
         try {
 
-//            InstructorDetail details =
-//                    new InstructorDetail("onetoone.youtube.com", "Reading books");
-//            Instructor instructor =
-//                    new Instructor("Nur", "Sheikh", "nur@gmail.com");
-//            instructor.setInstructorDetail(details);
-//
-            InstructorDetail details =
-                    new InstructorDetail("layla.youtube.com", "Watching youtube videos");
-            Instructor instructor =
-                    new Instructor("Layla", "Masrur", "lmasrur@gmail.com");
-            instructor.setInstructorDetail(details);
             session.beginTransaction();
+            InstructorDetail details =
+                    new InstructorDetail("onetoone.youtube.com", "Reading books");
+            Instructor instructor =
+                    new Instructor("Nur", "Sheikh", "nur@gmail.com");
+            instructor.setInstructorDetail(details);
+
+//            InstructorDetail details =
+//                    new InstructorDetail("layla.youtube.com", "Watching youtube videos");
+//            Instructor instructor =
+//                    new Instructor("Layla", "Masrur", "lmasrur@gmail.com");
+//            instructor.setInstructorDetail(details);
+
 
             // It will also save the instructor detail because of Cascade.all
             session.save(instructor);

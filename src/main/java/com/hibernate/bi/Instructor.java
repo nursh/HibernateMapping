@@ -1,20 +1,17 @@
 package com.hibernate.bi;
 
-
 import lombok.Data;
-import lombok.NoArgsConstructor;
 
 import javax.persistence.*;
 
 @Data
-@NoArgsConstructor
+@Table(name = "instructor")
 @Entity
-@Table(name = "teacher")
-public class Teacher {
+public class Instructor {
 
     @Id
-    @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "id")
+    @GeneratedValue(strategy = GenerationType.IDENTITY)
     private int id;
 
     @Column(name = "first_name")
@@ -27,12 +24,16 @@ public class Teacher {
     private String email;
 
     @OneToOne(cascade = CascadeType.ALL)
-    @JoinColumn(name = "course_id")
-    private Course course;
+    @JoinColumn(name = "instructor_detail_id")
+    private InstructorDetail instructorDetail;
 
-    public Teacher(String firstName, String lastName, String email) {
+    public Instructor() {
+
+    }
+
+    public Instructor(String firstName, String lastName, String email) {
+        this.email = email;
         this.firstName = firstName;
         this.lastName = lastName;
-        this.email = email;
     }
 }
